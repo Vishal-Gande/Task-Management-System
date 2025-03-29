@@ -35,8 +35,9 @@ public class User {
     }
 
     public void listTasks(){
+        System.out.println("listing tasks for user " + name + " :");
         for(Task task : tasks){
-            System.out.println(task);
+            System.out.println(" - task: " + task.getName() + " | Status: " + task.getStatus());
         }
     }
 

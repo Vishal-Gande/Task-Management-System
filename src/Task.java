@@ -53,5 +53,9 @@ public class Task {
         this.status = newStatus;
     }
 
+    public void setUser(int newUserId) {
+        this.userId = newUserId;
+    }
+
 
 }

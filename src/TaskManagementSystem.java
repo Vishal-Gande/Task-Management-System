@@ -32,7 +32,7 @@ public class TaskManagementSystem {
         {
             tasks.put(task.getId(), task);
             users.get(task.getUserId()).addTask(task);
-            System.out.println("task: " + task.getName() + "with ID = " + task.getId() + " added");
+            System.out.println("task: " + task.getName() + " with ID = " + task.getId() + " added");
         }
     }
 
@@ -76,7 +76,24 @@ public class TaskManagementSystem {
 
     }
 
+    public void assignTask(Task task, User newuser)
+    {
+        User olduser = users.get(task.getUserId());
+        olduser.removeTask(task);
 
+        task.setUser(newuser.getId());
+        newuser.addTask(task);
 
+    }
+
+    public void filterTasks(TaskStatus status, TaskPriority priority, User user)
+    {
+        System.out.println("Filtering tasks...");
+        for(Task task : tasks.values()) {
+            if(task.getStatus().equals(status) && task.getPriority().equals(priority) && task.getUserId()==user.getId()) {
+                System.out.println("- Task " + task.getName() + " with ID = " + task.getId());
+            }
+        }
+    }
 
 }

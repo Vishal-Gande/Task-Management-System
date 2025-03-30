@@ -1,0 +1,30 @@
+Users table
+
+- int ID
+- varchar Name
+- varchar Email
+- varchar Password
+
+
+Tasks table
+
+- int ID
+- varchar Name
+- varchar Description
+- int PriorityID
+- int StatusID
+- int UserId
+- Date createdon
+
+TaskStatus
+- ID
+- ENUM
+
+TaskPriority
+- ID
+- ENUM
+
+
+usertasks
+- int userid
+- int taskid

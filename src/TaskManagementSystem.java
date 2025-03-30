@@ -1,15 +1,17 @@
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class TaskManagementSystem {
 
-    public static TaskManagementSystem instance ;
+    private static TaskManagementSystem instance ;
 
-    private HashMap<Integer, Task> tasks;
-    private HashMap<Integer, User> users;
+    private ConcurrentHashMap<Integer, Task> tasks;
+    private ConcurrentHashMap<Integer, User> users;
 
     public TaskManagementSystem() {
-        tasks = new HashMap<>();
-        users = new HashMap<>();
+        tasks = new ConcurrentHashMap<>();
+        users = new ConcurrentHashMap<>();
     }
 
     public static TaskManagementSystem getInstance() {
@@ -40,7 +42,7 @@ public class TaskManagementSystem {
 
         if(tasks.containsKey(task.getId())) {
             tasks.remove(task.getId());
-            users.remove(task.getUserId());
+            //users.remove(task.getUserId());
             users.get(task.getUserId()).removeTask(task);
             System.out.println("task: " + task.getName() + "with ID = " + task.getId() + " removed");
         }

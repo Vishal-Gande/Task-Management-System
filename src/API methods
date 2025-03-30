@@ -1,0 +1,48 @@
+User Authentication
+
+    Register new user
+    POST - api/v0/auth/register
+    request body: name, email, password
+    response : userID, "user registered successfully"
+    Status - 201 for success, 400 for bad request
+
+    login
+    POST - api/v0/auth/login
+    req body: email, password
+    response : userID, "logged in"
+    Status - 201, 400(if username not given), 401(wrong password)
+
+
+Task Management
+
+    add new task
+    POST - api/v0/task
+    req : name, description, priority, status etc
+    response : taskId, "task added"
+    status - 201, 400(bad req ),401(token exp),403(not enough permissions)
+
+    modify task
+    PATCH - api/v0/task/taskId
+    req : status=completed
+    response : "modified"
+    status : 200, 400/401/403/404(not found)
+
+    delete task
+    DELETE - api/v0/task/taskId
+    response - "deleted successfully.."
+    status - 200, 404(resource not found)
+
+    filter tasks
+    POST - api/v0/task/search
+    req : status, priority etc
+    response : task1, task2 etc
+    status - 200, 401
+
+
+
+
+
+
+
+
+

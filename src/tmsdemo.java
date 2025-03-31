@@ -14,17 +14,17 @@ public class tmsdemo {
         tms.addUser(u3);
 
         Task t1 = new Task(1,"get milk","Go to supermarket and buy milk",
-                TaskStatus.NOT_STARTED, 1, new Date(),1, TaskPriority.MEDIUM);
+                TaskStatus.NOT_STARTED, 1, new Date(),1, TaskPriority.MEDIUM, u1);
 
 
         Task t2 = new Task(2,"cc bill","Go to cred and pay bill",
-                TaskStatus.NOT_STARTED, 1, new Date(),1, TaskPriority.HIGH);
+                TaskStatus.NOT_STARTED, 1, new Date(),1, TaskPriority.HIGH, u1);
 
         Task t3 = new Task(3,"book gas","order bharat gas",
-                TaskStatus.NOT_STARTED, 1, new Date(),1, TaskPriority.HIGH);
+                TaskStatus.NOT_STARTED, 1, new Date(),1, TaskPriority.HIGH, u1);
 
         Task t4 = new Task(4,"plan goa","checkout mmt",
-                TaskStatus.NOT_STARTED, 1, new Date(),1, TaskPriority.LOW);
+                TaskStatus.NOT_STARTED, 1, new Date(),1, TaskPriority.LOW, u1);
 
 
         tms.addTask(t1);

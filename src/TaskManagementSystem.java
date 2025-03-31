@@ -80,12 +80,16 @@ public class TaskManagementSystem {
 
     public void assignTask(Task task, User newuser)
     {
+        task.removeObserver(users.get(task.getUserId()));
         User olduser = users.get(task.getUserId());
         olduser.removeTask(task);
+        olduser.sendNotification(olduser.getName() + "has been removed from task:" + task.getName());
 
         task.setUser(newuser.getId());
         newuser.addTask(task);
-
+        task.addObserver(users.get(task.getUserId()));
+        task.notifyObservers();
+        //newuser.sendNotification(newuser.getName() + "has been assigned to task: " + task.getName());
     }
 
     public void filterTasks(TaskStatus status, TaskPriority priority, User user)

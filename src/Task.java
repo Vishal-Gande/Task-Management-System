@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Task {
@@ -11,8 +12,9 @@ public class Task {
     private Date date;
     private int createdBy;
     private TaskPriority priority;
+    private ArrayList<Observer> observers;
 
-    public Task(int id, String name, String description, TaskStatus status, int userId, Date date, int createdBy, TaskPriority priority) {
+    public Task(int id, String name, String description, TaskStatus status, int userId, Date date, int createdBy, TaskPriority priority, User user) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -21,8 +23,23 @@ public class Task {
         this.date = date;
         this.createdBy = createdBy;
         this.priority = priority;
+        this.observers = new ArrayList<>();
+        this.addObserver(user);
     }
 
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.sendNotification("Notifying observer..");
+        }
+    }
     public int getId() {
         return id;
     }

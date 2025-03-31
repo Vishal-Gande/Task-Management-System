@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+//import java.util.Observer;
 
-public class User {
+public class User implements Observer {
 
     private int id;
     private String name;
@@ -14,6 +15,10 @@ public class User {
         this.email = email;
         this.password = password;
         this.tasks = new ArrayList<>();
+    }
+
+    public void sendNotification(String message) {
+        System.out.println(message);
     }
 
     public int  getId(){
